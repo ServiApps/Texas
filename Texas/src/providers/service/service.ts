@@ -51,6 +51,7 @@ export class Service {
              this.config.consumerSecret = data.keys.consumerSecret;
               this.values.currency = data.currency;
               this.banners = data.banners;
+              this.banners = data.banners;
                 if(data.user.data != undefined){
                   this.values.isLoggedIn = data.user.data.status;
                   this.values.customerId = data.user.data.ID;

@@ -6,9 +6,6 @@ import { URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 
-
-
-
 var headers = new Headers();
 headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -42,7 +39,7 @@ export class ProductService {
     */
     this.presentLoading(this.values.lan.WaitTitle);
     return new Promise(resolve => {
-      this.http.get(this.config.setUrl('GET', '/wp-json/wc/v1/products/' + id + '?', false )).map(res => res.json())
+      this.http.get(this.config.setUrl('GET', '/wc-api/v3/products/' + id + '?', false )).map(res => res.json())
         .subscribe(data => {
           this.dismissLoading();
           this.product = data;

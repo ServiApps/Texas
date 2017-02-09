@@ -33,8 +33,8 @@
         </ion-thumbnail>
       
         <h2 style="margin-top:8px" wrap-text>{{item.value.data.post.post_title}}</h2>
-        <h3 wrap-text > Price: {{(1*item.value.line_total/item.value.quantity) | currency:values.currency:true:'1.2-2'}}</h3>
-        <h3 wrap-text> Total: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'  }}</h3>
+        <h3 wrap-text > Price: {{1*item.value.price | currency:values.currency:true:'1.2-2'}}</h3>
+        <h3 wrap-text> Total: {{1*item.value.line_subtotal | currency:values.currency:true:'1.2-2'}}</h3>
      
          <a (click)="delete( item.key )"><ion-icon name="trash"></ion-icon></a>
 
@@ -56,16 +56,10 @@
       <ion-item-divider style="background-color: #f2f2f2;">
        <h2>Select a shipping method</h2>
       </ion-item-divider>
-
-
       <ion-item *ngFor="let method of shipping | keys" >
-
         <ion-label>{{method.value.method_title}} <span *ngIf="method.value.cost">{{ 1*method.value.cost | currency:values.currency:true:'1.2-2'}}</span> </ion-label>
         <ion-radio value="{{method.value.id + ':' + method.value.instance_id}}" ></ion-radio>
       </ion-item>
-
-
-
     </ion-list>
 
 

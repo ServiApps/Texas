@@ -90,7 +90,7 @@ export class CartService {
    
 
     params.set('_wpnonce', this.values.cartNonce);
-    params.set('_wp_http_referer', '/wp/api/raham/cart/');
+    params.set('_wp_http_referer', '/api/raham/cart/');
     params.set('update_cart', 'Update Cart');
 
     return new Promise(resolve => {
@@ -116,7 +116,7 @@ export class CartService {
         params.set('cart[' + key + '][qty]', this.values.cartItem[key].quantity);
 
     params.set('_wpnonce', this.values.cartNonce);
-    params.set('_wp_http_referer', '/wp/api/raham/cart/');
+    params.set('_wp_http_referer', '/api/raham/cart/');
     params.set('update_cart', 'Update Cart');
 
     return new Promise(resolve => {

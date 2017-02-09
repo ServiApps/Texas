@@ -3,7 +3,7 @@ import { NavController, NavParams, Content } from 'ionic-angular';
 import { ProductService } from '../../providers/service/product-service';
 import { CartPage } from '../cart/cart';
 import { Values } from '../../providers/service/values';
-//import { KeysPipe } from '../../pipes/pipe';
+import { KeysPipe } from '../../pipes/pipe';
 import { Functions } from '../../providers/service/functions';
 
 
@@ -34,10 +34,6 @@ export class ProductPage {
     this.id = params.data;
     this.options = [];
     this.quantity = "1";
-
-
-
-
     this.service.getProduct(this.id)
         .then((results) => this.product = results);
   }
