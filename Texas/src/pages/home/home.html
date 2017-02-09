@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="shadow">
+
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+      <ion-title text-center style="overflow: hidden;text-overflow: ellipsis;">{{values.lan.Home}}</ion-title>
+
+      <ion-buttons end>
+          <button ion-button icon-only light color="shadowlite" (click)="getSearch()">
+             <ion-icon ios="ios-search" md="md-search"></ion-icon>
+          </button>
+          <button ion-button icon-only light class="has-icon icon-only has-badge" (click)="getCart()">
+             <ion-icon class="ion-ios-cart item-icon"></ion-icon>
+          <ion-badge class="badge badge-light" *ngIf="values.count != 0">{{values.count}}</ion-badge>
+          </button>
+      </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="home">
+
+  <div *ngIf="service?.banners" class="banners">
+    <ion-slides style="width: 100%; height: 30%; margin-top: -10px;" [options]="mySlideOptions">
+      <ion-slide *ngFor='let value of service.banners'>
+        <img src="{{value}}">
+      </ion-slide> 
+    </ion-slides>
+  </div>
+   <div *ngIf="service?.categories" class="shop"> 
+
+</div>
+  <div *ngIf="service?.categories" class="shop">
+    <div class="shop-name"><ion-item><b color="shadow" text-uppercase>Shop</b></ion-item></div>
+      <div *ngIf="service.mainCategories">
+        <ion-row class="row unlimited-items">
+          <ion-col class="col" *ngFor="let item of service.mainCategories">
+
+            <a (click)="getCategory(item.id, item.slug)">
+              <ion-card>
+              <ion-card-content style="padding: 0px">
+                <img src="{{item.image}}"/>
+              </ion-card-content>
+                <div text-center>
+                  <ion-label text-uppercase style="font-weight:500; margin-left:5px">{{item.name}}</ion-label>
+                </div>
+              </ion-card>
+            </a>   
+
+          </ion-col>
+        </ion-row>    
+    </div>    
+  </div>
+
+</ion-content>
+

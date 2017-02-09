@@ -1,0 +1,140 @@
+.cart {
+font-family: arial;
+
+ion-label{
+	font-size: 14px;
+	margin: 0px;
+	font-weight: 500;
+}
+
+.list {
+    margin: 0;
+}
+
+.quantity{
+	margin-right: 8px;
+}
+
+scroll-content{
+	padding-bottom: 52px;
+}
+
+.item ion-thumbnail {
+    margin: 0 16px 0 0;
+    min-width: 8rem;
+    min-height: 8rem;
+    max-width: 10rem;
+    max-height: 10rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.item ion-thumbnail img {
+    min-width: 8rem;
+    min-height: 8rem;
+    max-width: 10rem;
+    max-height: 10rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.item { 
+    padding: 0px;
+    margin: 0px;
+}
+
+.ship{
+    margin: 5px 5px 10px 5px;
+
+	ion-label{
+		margin: 10px 10px 10px 16px;
+	}
+	ion-item{
+		margin: 0px;
+	}
+}
+
+.total{
+    margin: 5px 5px 10px 5px;
+
+	ion-label{
+		margin: 10px 10px 10px 16px;
+	}
+	ion-row{
+		padding: 0px;
+	}
+	ion-col{
+		padding: 0px;
+	}
+
+}
+
+.coupon{
+    margin: 5px 5px 60px 5px;
+    background-color: #f2f2f2;
+
+    button{
+     margin: 10px 0;
+    }
+    ion-item{
+     background-color: inherit
+    }
+    ion-label{
+    margin-left: 10px;
+    }
+}
+
+.item.item-label-floating .text-input {
+    margin-left: 10px;
+}
+
+.cart-list{
+    margin: 5px 5px 0 5px;
+
+    ion-item{
+    box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.list .item-block .item-inner {
+    border-bottom: none;
+}
+
+.list .item-block:last-child, {
+    border-bottom: none;
+}
+.list > .item-block:first-child {
+    border-top: none;
+}
+
+.item.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: none;
+}
+.item-input ion-input, .item-input ion-textarea {
+    position: static;
+    background: #fff;
+    margin:5px 5px 5px 10px;
+}
+
+.item.item-label-stacked [item-right], .item.item-label-floating [item-right] {
+    margin: 20px 0 6px 5px;
+}
+
+.item h2 {
+    margin: 0 0 2px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.button {
+    height: 2.5em;
+    border-radius: 0;
+    font-size: 14px;
+}
+}
+
+.button {
+    height: 2.8em;
+    border-radius: 0;
+    font-size: 14px;
+}

@@ -1,0 +1,46 @@
+<ion-header>
+<ion-navbar color="shadow">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title  text-center>{{values.lan.LastOrders}}</ion-title>
+
+</ion-navbar>
+</ion-header>
+
+<ion-content text-wrap class="account-order">
+
+<div *ngIf="orders">
+<div *ngIf="orders.orders.length">
+
+<ion-item *ngFor="let item of orders.orders">
+		  <h2><b>Order Number :</b> {{item.order_number}}</h2>
+		  <h2><b>Order date :</b> {{item.created_at | date:'medium'}}</h2>
+          
+		  <h2><b>Ship to :</b> {{item.shipping_address.first_name}} {{item.shipping_address.last_name}}, {{item.shipping_address.address_1}}, {{item.shipping_address.address_2}}, {{item.shipping_address.city}}, {{item.shipping_address.state}}, {{item.shipping_address.country}}, {{item.shipping_address.postcode}}</h2>
+		  <h2><b>Status :</b> {{item.status}}</h2>
+		  <h2><b>Quantity :</b> {{item.total_line_items_quantity}}</h2>
+
+		  <h2><b>Subtotal :</b> {{1*item.subtotal  }}</h2>
+		  <h2><b>Total :</b> {{1*item.total  }}</h2>
+
+		  <ion-row>
+		  <ion-col no-padding>
+		  	<button style="padding-left:5px" ion-button icon-left clear no-margin color="shadow" small (click)="getOrderDetails(item.id)">
+		  		<ion-icon name="ios-eye"></ion-icon>
+		  	    {{values.lan.ViewDetailsTitle}} 
+		  	</button>
+		  </ion-col>
+		  </ion-row>
+     </ion-item>
+    </div> 
+</div>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="has_more_items">
+    <ion-infinite-scroll-content
+      loadingSpinner="crescent"
+      loadingText={{values.lan.GettingMoreElements}}>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

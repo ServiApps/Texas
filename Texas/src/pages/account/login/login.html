@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="shadow">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>{{values.lan.LogIn}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="account-login">
+  <div>
+     <form #f="ngForm">
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>user name</ion-label>
+          <ion-input required type="email" [(ngModel)]="loginData.username" name="firstname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>password</ion-label>
+          <ion-input required type="password" [(ngModel)]="loginData.password" name="password"></ion-input>
+        </ion-item>
+     
+      </ion-list>
+
+     <div class="margin"> 
+     <button ion-button block color="shadow" type="submit" class="button button-block button-default" [disabled]="disableSubmit" (click)="login(loginData)">{{buttonText}}</button><br>
+     <button ion-button clear color="shadow" type="submit" class="button button-block button-clear" (click)="forgotten(loginData)">{{values.lan.ForgotPassword}} ?</button>
+     </div>
+     
+    </form>
+    <br/>
+
+  </div>
+</ion-content>

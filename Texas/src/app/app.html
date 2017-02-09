@@ -1,0 +1,73 @@
+<ion-menu [content]="content">
+
+
+  <ion-content class="sidemenugrad">
+
+    <ion-list style="margin:50px 0 0 0;font-family: Arial ">
+
+      <div class="profile-image">
+       <a (click)="getImage()">
+        <img src="{{values.avatar}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;">
+       </a> 
+      </div>
+   
+      <button ion-button no-line block clear style="background: none;text-align:center"  *ngIf="!values.isLoggedIn">
+        <ion-label color="dark" style="text-align:center; margin-right:0px; margin-left:0px"><strong>{{pages[1].title}}</strong></ion-label>
+      </button>
+
+      <button ion-button block no-line clear style="background: none; text-align:center" *ngIf="values.isLoggedIn">
+        <ion-label color="dark" style="text-align:center; margin-right:0px; margin-left:0px"><strong>{{values.customerName}}</strong></ion-label>
+      </button>
+      
+    </ion-list>
+<br>
+
+      <ion-list no-margin *ngIf="service.categories" style=";font-family: Arial">
+        <ion-item-divider class="divider" style="background: none; border-bottom: 0.55px solid #c3c0d0;" menuClose (click)="openPage(pages[2].component)">
+         <a style="font-weight: 500; font-size:14px" color="dark" text-uppercase><ion-icon item-left ios="ios-home" md="md-home"></ion-icon><strong>Shop</strong></a>
+        </ion-item-divider>
+
+        <a ion-item full style="background: none; text-align:left" menuClose *ngFor="let item of service.mainCategories" (click)="getCategory(item.id, item.slug)">
+         <ion-icon item-right hideWhen="ios" class="ion-ios-arrow-forward item-icon"></ion-icon>   
+        <ion-label color="dark" >{{item.name}}</ion-label>  
+        </a>
+   </ion-list>
+   <br>
+
+      <ion-list style=";font-family: Arial" class="divider">
+        <ion-item-divider style="background: none; font-weight: 500; font-size:14px; border-bottom: 0.55px solid #c3c0d0;">
+          <ion-label color="dark" text-uppercase><ion-icon item-left ios="ios-briefcase" md="md-briefcase"></ion-icon><strong>{{values.lan.Account}}</strong></ion-label>
+        </ion-item-divider>
+        <a ion-item  full style="background: none; text-align:left" menuClose (click)="openPage(menu[0].component)" *ngIf="!values.isLoggedIn">
+          <ion-label color="dark"><ion-icon item-left ios="ios-log-in" md="md-log-in"></ion-icon>{{menu[0].title}}</ion-label>
+        </a>
+        <a ion-item full style="background: none; text-align:left" menuClose (click)="openPage(menu[1].component)" *ngIf="!values.isLoggedIn">
+          <ion-label color="dark"><ion-icon item-left ios="ios-clipboard" md="md-clipboard"></ion-icon>{{menu[1].title}}</ion-label>
+        </a>
+        <a ion-item full style="background: none; text-align:left" menuClose (click)="openPage(menu[3].component)" *ngIf="values.isLoggedIn">
+          <ion-label color="dark"><ion-icon item-left ios="ios-locate" md="md-locate"></ion-icon>{{menu[3].title}}</ion-label>
+        </a>
+        <a ion-item full style="background: none; text-align:left" menuClose (click)="openPage(menu[4].component)" *ngIf="values.isLoggedIn">
+          <ion-label color="dark">  <ion-icon item-left ios="ios-list" md="md-list"></ion-icon>{{menu[4].title}}</ion-label>.
+        </a>
+        <a ion-item full style="background: none; text-align:left" menuClose (click)="openPage(menu[5].component)">
+          <ion-label color="dark"><ion-icon item-left ios="ios-exit" md="md-exit"></ion-icon>{{menu[5].title}}</ion-label>
+        </a>
+
+        <a ion-item full style="background: none; text-align:left" menuClose (click)="logout()" *ngIf="values.isLoggedIn">
+          <ion-label color="dark"><ion-icon item-left ios="ios-log-out" md="md-log-out"></ion-icon>{{values.lan.LogOut}}</ion-label>
+        </a>
+      </ion-list>
+      <br>
+
+  </ion-content>
+
+<style type="text/css">
+
+</style>
+
+
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

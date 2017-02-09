@@ -1,0 +1,52 @@
+.account-register {
+
+.button {
+    height: 2.5em;
+    border-radius: 0;
+}
+.margin{
+	margin: 5px;
+}
+.list {
+    margin: 0 0 16px 0;
+}
+
+.item {
+    padding: 0;
+}
+.list .item-block .item-inner {
+    border-bottom: 0.55px solid #edecef;
+}
+.list > .item-block:first-child {
+    border-top: none;
+}
+.list > .item-block:last-child {
+    border-bottom: 0.55px solid #e9e7f3;
+}
+.label[floating] {
+    margin:5px 16px;
+    font-size: 14px;
+    color: #999;
+}
+
+.item.item-label-floating .text-input {
+    margin: 8px 0 8px 16px;
+    font-size: 15px;
+}
+.label {
+    margin: 11px 8px 11px 16px;
+    font-size: 15px;
+}
+.list-header { 
+    border-bottom: 0.55px solid #e9e7f3;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: #bf4080;
+}
+.margin{
+    margin: 5px;
+}
+
+}

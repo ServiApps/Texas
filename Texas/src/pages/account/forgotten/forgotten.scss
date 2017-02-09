@@ -1,0 +1,31 @@
+.forgotten {
+
+.margin{
+	margin: 5px;
+}
+.button {
+    height: 2.5em;
+    border-radius: 0;
+}
+.list {
+    margin: 0 0 16px 0;
+}
+
+.item {
+    padding: 0;
+}
+.item .item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0.55px solid #f3f2f7;
+}
+.label[floating] {
+    margin:5px 16px;
+    font-size: 15px;
+    color: #999;
+}
+
+.item.item-label-floating .text-input {
+    margin: 8px 0 8px 16px;
+    font-size: 15px;
+}
+}

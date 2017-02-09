@@ -1,0 +1,46 @@
+.order-summary {
+
+font-family: arial;
+
+.pad{
+	padding-bottom:40px;
+}
+
+scroll-content{
+	padding-bottom: 52px;
+}
+.item {
+    padding: 0px 10px;
+}
+.list {
+   margin: 0;
+}
+.thank{
+	ion-label {
+    white-space: normal;
+    text-align: center;
+    }
+}
+
+.label {
+    margin: 0px;
+}
+
+.summary{
+	.item h2 {
+    margin: 10px 5px;
+    font-size: 15px;
+    font-weight: normal;
+    }
+}
+
+.order-details{
+	ion-label{
+	    margin: 5px 10px;
+	}
+	ion-item{
+	background-color:#f2f2f2;
+	padding: 0 4px;
+	}
+}
+}

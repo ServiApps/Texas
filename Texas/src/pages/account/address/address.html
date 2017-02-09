@@ -1,0 +1,46 @@
+<ion-header>
+<ion-navbar color="shadow">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title text-wrap text-center>{{values.lan.AddressBook}}</ion-title>
+
+</ion-navbar>
+</ion-header>
+
+<ion-content text-wrap class="account-address">
+
+<div *ngIf="addresses" class="address">
+
+<div *ngIf="addresses.customer.billing_address">
+		<ion-item>
+		<h1>Billing Address</h1>
+		<h2>{{addresses.customer.billing_address.first_name}} {{addresses.customer.billing_address.last_name}}</h2>
+		<h2>{{addresses.customer.billing_address.phone}}</h2>
+		<h2>{{addresses.customer.billing_address.email}}</h2>
+		<h2>{{addresses.customer.billing_address.address_1}}</h2>
+		<h2>{{addresses.customer.billing_address.address_2}}</h2>
+		<h2>{{addresses.customer.billing_address.city}}, {{addresses.customer.billing_address.state}}</h2>
+		<h2>{{addresses.customer.billing_address.country}}, {{addresses.customer.billing_address.postcode}}</h2>
+		</ion-item>
+</div>
+ 
+<div *ngIf="addresses.customer.shipping_address">
+		<ion-item>
+		<h1>Shipping Address</h1>
+		<h2>{{addresses.customer.shipping_address.first_name}} {{addresses.customer.shipping_address.last_name}}</h2>
+		<h2>{{addresses.customer.shipping_address.phone}}</h2>
+		<h2>{{addresses.customer.shipping_address.address_1}}</h2>
+		<h2>{{addresses.customer.shipping_address.address_2}}</h2>
+		<h2>{{addresses.customer.shipping_address.city}}, {{addresses.customer.shipping_address.state}}</h2>
+		<h2>{{addresses.customer.shipping_address.country}}, {{addresses.customer.shipping_address.postcode}}</h2>
+		</ion-item>
+</div>
+ 
+</div>
+
+<div class="margin">
+<button ion-button block color="shadow" type="submit" class="button button-block button-default" (click)="editAddress()">Edit Address</button>
+</div>
+
+</ion-content>

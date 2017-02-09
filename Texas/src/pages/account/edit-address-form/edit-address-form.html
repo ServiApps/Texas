@@ -1,0 +1,186 @@
+<ion-header>
+<ion-navbar color="shadow">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title text-center>{{values.lan.EditAddressBookRecord}}</ion-title>
+
+</ion-navbar>
+</ion-header>
+
+<ion-content class="edit-address-form">
+
+<div>
+
+<ion-list>
+
+<ion-item style=" background-color:#f2f2f2">
+<h2 style=" font-size:18px; font-weight:500;font-family: Arial">Billing Address</h2>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>First name</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.first_name" name="firstname" value="first_name.value"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Last name</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.last_name" name="last_name"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Company</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.company" name="company"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Phone</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.phone" name="phone"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input required type="email" [(ngModel)]="editAddress.billing_address.email" name="email"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Street Address 1</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.address_1" name="address_1"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Street Address 2</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.address_2" name="address_2"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>City</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.city" name="city"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="country">
+   <ion-label>  
+         Country
+   </ion-label>   
+      <ion-select [(ngModel)]="editAddress.billing_address.country" (ngModelChange)="getBillingRegion(editAddress.billing_address.country)" name="country">
+         <div *ngFor="let field of country.country.countries | keys">
+         <ion-option value="{{field.key}}">{{field.value}}</ion-option>
+         </div>
+      </ion-select>
+</ion-item>
+
+<ion-item *ngIf="billing_states">
+   <ion-label>  
+         State
+   </ion-label>   
+      <ion-select [(ngModel)]="editAddress.billing_address.state" name="state">
+         <div *ngFor="let field of billing_states | keys">
+         <ion-option value="{{field.key}}">{{field.value}}</ion-option>
+         </div>
+      </ion-select>      
+</ion-item>
+
+<ion-item *ngIf="!billing_states">
+  <ion-label floating>State / County</ion-label>
+  <ion-input required type="text" [(ngModel)]="editAddress.billing_address.state" name="state"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Postcode</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.billing_address.postcode" name="postcode"></ion-input>
+</ion-item>
+
+</ion-list>
+</div>
+
+<ion-item style=" background-color:#f2f2f2">
+    <ion-label style="font-size:16px;font-family: Arial;color: #bf4080;">Same For Shipping</ion-label>
+    <ion-toggle checked="true" [(ngModel)]="editAddress.shipping" name="subscribe"></ion-toggle>
+</ion-item>
+
+  <br>
+
+<div *ngIf="!editAddress.shipping">
+<ion-list>
+
+<ion-item style=" background-color:#f2f2f2">
+<h2 style=" font-size:18px; font-weight:500;font-family: Arial">Shipping Address</h2>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>First name</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.first_name" name="firstname"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Last name</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.last_name" name="last_name"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Company</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.company" name="company"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Street Address 1</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.address_1" name="address_1"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>Street Address 2</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.address_2" name="address_2"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label floating>City</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.city" name="city"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="country">
+       
+       <ion-label>  
+             Country
+       </ion-label>   
+          <ion-select [(ngModel)]="editAddress.shipping_address.country" (ngModelChange)="getShippingRegion(editAddress.shipping_address.country)" name="country">
+             <div *ngFor="let field of country.country.countries | keys">
+             <ion-option value="{{field.key}}">{{field.value}}</ion-option>
+             </div>
+          </ion-select>
+    
+</ion-item>
+
+<ion-item *ngIf="shipping_states">
+       
+       <ion-label>  
+             State
+       </ion-label>   
+          <ion-select [(ngModel)]="editAddress.shipping_address.state" name="state">
+             <div *ngFor="let field of shipping_states | keys">
+             <ion-option value="{{field.key}}">{{field.value}}</ion-option>
+             </div>
+          </ion-select>      
+</ion-item>
+  
+  <ion-item *ngIf="!shipping_states">
+    <ion-label floating>State / County</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.state" name="state"></ion-input>
+  </ion-item>
+
+<ion-item>
+    <ion-label floating>Postcode</ion-label>
+    <ion-input required type="text" [(ngModel)]="editAddress.shipping_address.postcode" name="postcode"></ion-input>
+</ion-item>
+
+</ion-list>
+</div>
+
+<div class="margin">
+<button ion-button block color="shadow" type="submit" [disabled]="disableSubmit" class="button button-block button-default" (click)="saveAddress()">{{values.lan.Save}}</button>
+</div>
+
+</ion-content>
+
+
+
+

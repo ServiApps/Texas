@@ -1,0 +1,94 @@
+<ion-header>
+<ion-navbar color="shadow">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title text-center>{{values.lan.Wishlist}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only light class="has-icon icon-only has-badge" (click)="getCart()">
+
+      <ion-icon class="ion-ios-cart item-icon"></ion-icon>
+      <ion-badge class="badge badge-light" *ngIf="values.count">{{values.count}}</ion-badge>
+      </button>
+    </ion-buttons>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding class="wishlist">
+
+
+
+
+
+<div *ngIf="wishlist">
+
+
+<div align="center" secondary *ngIf="!wishlist.wishlist.item">
+ <button ion-button block class="button button-block button-clear"> {{values.lan.EmptyWishlistViewMessage}}</button>
+</div>
+
+<ion-list *ngIf="wishlist.wishlist.item">
+
+  <div *ngIf="wishlist.wishlist.item.length">
+  <ion-item *ngFor="let item of wishlist.wishlist.item">
+    <ion-thumbnail item-left (click)="getProduct(item.entity_id)">
+        <img src="{{item.icon.__text}}"> 
+     </ion-thumbnail>
+
+    <h3 (click)="getProduct(item.entity_id)">{{item.name}}</h3>
+    <h4>{{item.price._regular}}</h4>
+
+
+    <h4 *ngIf="1">{{values.lan.InStock}}</h4>
+
+
+<ion-row>
+<ion-col royal width-50>
+    <button ion-button full no-padding no-margin (click)="addToCart(item.item_id)">
+      {{values.lan.AddToCart}}
+    </button>
+    </ion-col>
+<ion-col royal width-50>
+    <button ion-button full color="shadow" no-padding no-margin (click)="delete(item.item_id)">
+     {{values.lan.Delete}}
+    </button>
+    </ion-col>
+    </ion-row>
+
+
+  </ion-item>
+  </div>
+
+  <ion-item *ngIf="!wishlist.wishlist.item.length">
+    <ion-thumbnail item-left (click)="getProduct(wishlist.wishlist.item.entity_id)">
+        <img src="{{wishlist.wishlist.item.icon.__text}}"> 
+     </ion-thumbnail>
+
+    <h3 (click)="getProduct(wishlist.wishlist.item.entity_id)">{{wishlist.wishlist.item.name}}</h3>
+    <h4>{{wishlist.wishlist.item.price._regular}}</h4>
+
+
+    <h4 *ngIf="1">{{values.lan.InStock}}</h4>
+<ion-row>
+<ion-col royal width-50>
+    <button ion-button full no-padding no-margin (click)="addToCart(wishlist.wishlist.item.item_id)">
+      {{values.lan.AddToCart}}
+    </button>
+    </ion-col>
+<ion-col royal width-50>
+    <button ion-button full color="shadow" no-padding no-margin (click)="delete(wishlist.wishlist.item.item_id)">
+      {{values.lan.Delete}}
+    </button>
+    </ion-col>
+    </ion-row>
+       
+  
+  </ion-item>
+
+</ion-list>
+
+
+
+</div>
+
+</ion-content>
